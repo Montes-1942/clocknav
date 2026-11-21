@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0f1c">
+    <title>Inicio | Galería y reloj</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main class="main-container">
+
+        <!-- BUSCADOR -->
+        <section class="search-container">
+            <form id="searchForm">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Buscar en Google..."
+                    autocomplete="off"
+                >
+                <button type="submit" class="search-button"
+                        aria-label="Buscar en Google">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="10.8" cy="10.8" r="7.2"></circle>
+                        <path d="m16 16 5 5"></path>
+                    </svg>
+                </button>
+            </form>
+        </section>
+
+        <!-- GALERÍA -->
+        <section class="gallery-card">
+
+            <div class="gallery-header">
+                <div class="gallery-actions">
+
+                    <!-- AGREGAR FOTOGRAFÍAS -->
+                    <label
+                        class="icon-button"
+                        for="imageUpload"
+                        title="Agregar fotografías"
+                        aria-label="Agregar fotografías"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 5v14"></path>
+                            <path d="M5 12h14"></path>
+                        </svg>
+                    </label>
+
+                    <input
+                        type="file"
+                        id="imageUpload"
+                        accept="image/jpeg,image/png,image/webp"
+                        multiple
+                        hidden
+                    >
+
+                    <!-- CONFIGURACIÓN -->
+                    <button
+                        type="button"
+                        class="icon-button"
+                        id="settingsToggle"
+                        title="Configuración"
+                        aria-label="Abrir configuración"
+                        aria-expanded="false"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.7 2.9-.2-.1a1.7 1.7 0 0 0-1.8.1l-.2.1h-3.4l-.1-.2a1.7 1.7 0 0 0-1.5-1.1 1.7 1.7 0 0 0-1.1.4l-.2.1-2.9-1.7.1-.2a1.7 1.7 0 0 0-.1-1.8l-.1-.2v-3.4l.2-.1a1.7 1.7 0 0 0 1.1-1.5 1.7 1.7 0 0 0-.4-1.1l-.1-.2 1.7-2.9.2.1a1.7 1.7 0 0 0 1.8-.1l.2-.1h3.4l.1.2a1.7 1.7 0 0 0 1.5 1.1 1.7 1.7 0 0 0 1.1-.4l.2-.1 2.9 1.7-.1.2a1.7 1.7 0 0 0 .1 1.8l.1.2z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- PANEL DE COLORES -->
+                <div class="settings-panel" id="settingsPanel" hidden>
+                    <div class="settings-title">
+                        <span>Personalización</span>
+                        <button
+                            type="button"
+                            id="closeSettings"
+                            class="close-settings"
+                            aria-label="Cerrar configuración"
+                        >×</button>
+                    </div>
+
+                    <div class="setting-item">
+                        <label for="pageColor">Fondo de página</label>
+                        <input type="color" id="pageColor" value="#0a0f1c">
+                    </div>
+
+                    <div class="setting-item">
+                        <label for="galleryColor">Fondo de galería</label>
+                        <input type="color" id="galleryColor" value="#17243a">
+                    </div>
+
+                    <div class="setting-item">
+                        <label for="clockColor">Fondo del reloj</label>
+                        <input type="color" id="clockColor" value="#17243a">
+                    </div>
+
+                    <button
+                        type="button"
+                        id="resetColors"
+                        class="reset-button"
+                    >
+                        Restaurar colores
+                    </button>
+                </div>
+            </div>
+
+            <!-- FOTOGRAFÍAS DINÁMICAS -->
+            <div class="gallery-slider" id="slides"></div>
+
+            <!-- NAVEGACIÓN -->
+            <button
+                type="button"
+                class="slider-arrow prev"
+                id="prevSlide"
+                aria-label="Fotografía anterior"
+                hidden
+            >
+                <svg viewBox="0 0 24 24">
+                    <path d="m15 18-6-6 6-6"></path>
+                </svg>
+            </button>
+
+            <button
+                type="button"
+                class="slider-arrow next"
+                id="nextSlide"
+                aria-label="Fotografía siguiente"
+                hidden
+            >
+                <svg viewBox="0 0 24 24">
+                    <path d="m9 18 6-6-6-6"></path>
+                </svg>
+            </button>
+
+            <!-- CONTADOR -->
+            <div class="slide-counter" id="slideCounter" hidden>1/10</div>
+
+            <div class="gallery-footer">
+                <div class="slider-dots" id="sliderDots"></div>
+                <div class="upload-status" id="uploadStatus"></div>
+            </div>
+        </section>
+
+        <!-- RELOJ DIGITAL -->
+        <section class="clock-card" id="clockCard">
+
+            <div class="clock-location" id="city">
+                Hora local
+            </div>
+
+            <div class="clock-time" id="time">
+                --:--:--
+            </div>
+
+            <div class="clock-date" id="date">
+                Cargando fecha...
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
